@@ -40,15 +40,21 @@ export default new Router({
       redirect: "/"
     }
   ],
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (to.hash) {
-  //     return {
-  //       selector: to.hash
-  //     }
-  //   }
-  //   // return {
-  //   //   selector: "#next-user",
-  //   //   offset: { x: 0, y: 100 }
-  //   // };
-  // }
+  scrollBehavior(to, savedPosition) {
+    return new Promise(resolve => {
+      this.app.$root.$on('triggerScroll', () => {
+        // resolve({ x: 0, y: 200 })
+        let position = { x: 0, y: 0 };
+        if (savedPosition) {
+          position = savedPosition;
+        }
+        if (to.hash) {
+          position = {
+            selector: to.hash
+          };
+        }
+        resolve(position);
+      })
+    })
+  }
 });
