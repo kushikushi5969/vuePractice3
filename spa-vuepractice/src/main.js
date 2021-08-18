@@ -4,12 +4,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-router.beforeEach((to, from, next) => {
-  if (to.path === '/users/1') {
-    next({path: "/"});
-  }
-  next();
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/users/1') {
+//     next({path: "/"});
+//   }
+//   next();
+// })
 
 new Vue({
   router,
