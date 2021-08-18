@@ -30,16 +30,21 @@
 export default {
   props: ["id"],
   beforeRouteEnter(to, from, next) {
-    console.log('beforeRouteEnter')
+    console.log('beforeRouteEnter');
     next();
   },
   beforeRouteUpdate(to, from, next) {
-    console.log('beforeRouteUpdate')
+    console.log('beforeRouteUpdate');
     next();
   },
   beforeRouteLeave(to, from, next) {
-    console.log('beforeRouteLeave')
-    next();
+    console.log('beforeRouteLeave');
+    const isLeave = window.confirm("ほんまにこのページを離れるんか？");
+    if (isLeave) {
+      next();
+    } else {
+      next(false);
+    }
   }
 }
 </script>
