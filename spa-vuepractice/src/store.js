@@ -10,5 +10,14 @@ export default new Vuex.Store({
   getters: {
     doubleCount: state => state.count * 2,
     tripleCount: state => state.count * 3,
+  },
+  // stateの変更はmutationsだけで行う。追跡しやすや・バグ防止のため
+  mutations: {
+    increment(state, number) {
+      state.count += number;
+    },
+    decrement(state, number) {
+      state.count -= number;
+    }
   }
 })
