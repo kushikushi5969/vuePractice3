@@ -20,7 +20,7 @@ export default {
   //   myComponentDoubleCount: "dobuleCount"
   // }),
   computed: {
-    ...mapGetters(['doubleCount', 'tripleCount']),
+    ...mapGetters("count", ['doubleCount', 'tripleCount']),
     // message() {
     //   return this.$store.getters.message;
     // }
